@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+
+<head>
+  <!-- Place your kit's code here -->
+  <script src="https://kit.fontawesome.com/c193a93be3.js" crossorigin="anonymous"></script>
+  style
+        include ../static/index.css
+  <title>welcome</title>
+</head>
+
+<body>
+<form action="/Submit.pug" methode = "POST">
+  <div id="container1">
+    <h1 class="center"><i class="fa fa-users"></i></h1>
+    <div class="center" class="box1">
+        <input type="text" name="eventdayname" id="eventdayname" placeholder="Event Name">
+    </div>
+    <div class="center" class="box1">
+        <h4 style="font-size: 23px;">Starting date</h4> :  <span><input type="date" name="eventstartdate" id="eventstartdate"></span>
+    </div>
+    <div class="center" class="box1">
+        <h4 style="font-size: 23px;">Ending date</h4>   :  <input type="date" name="eventenddate" id="eventenddate" >
+    </div>
+    <div class="center" class="box1">
+        <h4 style="font-size: 23px;">Total Amount</h4>   :  <input type="text" name="Amounttaken" id="Amounttaken" placeholder="Total Amount">
+    </div>
+    <div class="center" class="box1">
+        <h4 style="font-size: 23px;">Amount left</h4>   :  <input type="text" name="Amountleft" id="Amountleft" placeholder="Remain Amount">
+    </div>
+    <div class="center" class="btn">
+      <button id="Submit data" ><a  href = "#">Sumit Data</a></button>
+    </div>
+  </div>
+  </form>
+</body>
+
+</html>
