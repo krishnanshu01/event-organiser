@@ -29,40 +29,39 @@ app.set('view engine' , 'pug');
 //setting path of the engine
 app.set('views' ,path.join(__dirname,'views'));
 
-app.get('/' , (req , res) =>{
+app.get('/' , (req , res) =>{ // takki baar baar name nan change krna pdega
     res.status(200).render('index.pug')
 })
+// post se lene ka mtlb hi jo bnda hi usse pta ni  chlega (rqst.body ke aandr)
 
-app.get('/login.pug' , (req , res) =>{
-    res.status(200).render('login.pug')
-})
-app.post('/Finalpage.pug' , (req , res) =>{
+app.post('/' , (req , res) =>{
     const Username = req.body.Username;
     const Password = req.body.Password;
+    if(Password.length != 0){
     detail.findOne({Username:Username} , (err , foundresult) =>{
       if(err){
           console.log(err);
       }else{
+
           if(foundresult.Password === Password){
             res.status(200).render('Finalpage.pug')
           }else{
-            res.status(400).render('login.pug');
+            res.status(200).render('index.pug')
           }
       }
     })
+   }else{
+       res.status(400).render('index.pug')
+   }
 });
 
 // submiting event data 
-app.get('/Finalpage.pug' , (req , res) =>{
-    res.status(200).render('Finalpage.pug')
-});
-app.get('/Submit.pug' , (req , res) =>{
+
+app.get('/Submit' , (req , res) =>{
     res.status(200).render('Submit.pug')
 });
 
-app.post('/Submit.pug' , (req , res) =>{
-    res.send('kaam toh kr he rha hi pr pta ni kya hoga bhai')
-    console.log('ander toh hai bhaiya');
+app.post('/Submit' , (req , res) =>{
     const Name = req.body.Name;
     const Username = req.body.Username;
     const Password = req.body.Password;
@@ -87,11 +86,11 @@ app.post('/Submit.pug' , (req , res) =>{
 });
 //check whether data exist or not
 
-app.get('/registration_from.pug' , (req , res) =>{
+app.get('/registration_from' , (req , res) =>{
     res.status(200).render('registration_from.pug')
 })
 
-app.post('/registration_from.pug' , (req , res) =>{
+app.post('/registration_from' , (req , res) =>{
     const Name = req.body.Name;
     const Username = req.body.Username;
     const Password = req.body.Password;
@@ -101,7 +100,7 @@ app.post('/registration_from.pug' , (req , res) =>{
         Password:Password
     });
     newUser.save((err) => {
-        err?console.log(err):res.send('succesfully created')
+        err?console.log(err):res.send('done bro')
     })
 
 })

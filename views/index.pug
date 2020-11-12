@@ -5,19 +5,26 @@
   <!-- Place your kit's code here -->
   <script src="https://kit.fontawesome.com/c193a93be3.js" crossorigin="anonymous"></script>
   style
-        include ../static/index.css
+    include ../static/index.css
+    <link rel="stylesheet" media="Screen and (max-width:1170px)" href="../static/responsive.css">
   <title>welcome</title>
 </head>
 
 <body>
-<form action="/" methode = "POST">
-  <div id="container" >
-    <h1 class="center"><i class="fa fa-users"></i></h1>
-    <div class="center" class="btn">
-      <button id="Log In" ><a  href = "/login.pug">Log In</a></button>
-      <button id="Register"><a href = "/registration_from.pug">Register</a></button>
+  <form action="/" method="POST">
+    <div id="container">
+      <h1 class="center"><i class="fa fa-users"></i></h1>
+      <div class="box">
+        <input class="center" type="text" id="Username" name="Username" placeholder="Username">
+      </div>
+      <div class="box">
+        <input class="center" type="password" id="Password" name="Password" placeholder="Password">
+      </div>
+      <div class="center" class="btn">
+        <button id="Log In"><a href="#">Log In</a></button>
+        <button id="Register"><a href="/registration_from">Register</a></button>
+      </div>
     </div>
-  </div>
   </form>
 </body>
 
